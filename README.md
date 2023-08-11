@@ -16,6 +16,8 @@
 
 1. [Creacion y explicacion de la DB - youtube](https://youtu.be/UZ1dtuib7Lc)
 2. [Tipos de datos en PostgreSQL](https://www.postgresql.org/docs/current/datatype.html)
+3. [Complementario: Restauracion/Creacion de una db a travez de un backup](https://youtu.be/1nQ4E9SJNXI)
+   **_ACLARACION :_** El Backup se encuentra en la carpeta [**_db_**](./db/) con el nombre `backup.sql`
 
 ### Backend
 
