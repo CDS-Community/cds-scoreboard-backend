@@ -7,3 +7,21 @@
 ## Recomendaciones
 
 - Para abrir el diagrama descargar la extencion para VSCode : `excalidraw`
+
+<br>
+
+## Recursos compartidos
+
+### Data Base - PostgreSQL
+
+- 1. [Creacion y explicacion de la DB - youtube](https://youtu.be/UZ1dtuib7Lc)
+- 2. [Tipos de datos en PostgreSQL](https://www.postgresql.org/docs/current/datatype.html)
+
+### Backend
+
+- 1. [Explicacion de creacion del servidor e implementacion del ORM](https://youtu.be/XCr9noiFGvw)
+- 2. [Documentacion oficial del ORM utilizado - Sequelize](https://sequelize.org/docs/v6/getting-started/)
+- 3. [Explicacion de la creacion y funcionalidad de los Schemas](https://youtu.be/ByrCkm3n-Dc)
+- 4. [Explicacion de la creacion y funcionalidad de los Controllers y Rutas]()
+- 5. [Validaciones : ¿Qué son y cómo identificamos cuales son necesarias?]()
+- 6. [Explicacion de la creacion y funcionalidad de las Validadciones]()
