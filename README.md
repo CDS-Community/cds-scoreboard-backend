@@ -17,6 +17,7 @@
 1. [Creacion y explicacion de la DB - youtube](https://youtu.be/UZ1dtuib7Lc)
 2. [Tipos de datos en PostgreSQL](https://www.postgresql.org/docs/current/datatype.html)
 3. [Complementario: Restauracion/Creacion de una db a travez de un backup](https://youtu.be/1nQ4E9SJNXI)
+
    **_ACLARACION :_** El Backup se encuentra en la carpeta [**_db_**](./db/) con el nombre `backup.sql`
 
 ### Backend
@@ -26,5 +27,7 @@
 3. [Explicacion de la creacion y funcionalidad de los Schemas](https://youtu.be/ByrCkm3n-Dc)
 4. [Explicacion de la creacion y funcionalidad de los Controllers](https://youtu.be/a4XSjPANaI4)
 5. [Explicacion de la creacion y funcionalidad de las Rutas](https://youtu.be/u_mb1hwogNc)
-6. [Validaciones : ¿Qué son y cómo identificamos cuales son necesarias?]()
+6. [Validaciones (middlewares y helpers) : ¿Qué son y cómo identificamos cuales son necesarias?]()
 7. [Explicacion de la creacion y funcionalidad de las Validadciones]()
+8. [Autenticacion : Implementacion y funcionamiento]()
+9. [Demostracion que repetir estos pasos no es de otro mundo]()
