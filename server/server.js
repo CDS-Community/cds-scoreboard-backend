@@ -16,6 +16,7 @@ class Server {
             // auth: '/api/auth',
             // user: '/api/usuarios',
             role: '/api/roles',
+            position: '/api/position'
         }
         // Conectar a la Base de Datos
         this.dbConnection();
@@ -61,6 +62,7 @@ class Server {
         // this.app.use(this.paths.auth, require('../routes/auth'));
         // this.app.use(this.paths.user, require('../routes/user'));
         this.app.use(this.paths.role, require('../modules/auth/routes/role'));
+        this.app.use(this.paths.position, require('../modules/auth/routes/position'));
     }
 
     listen() {
