@@ -41,7 +41,7 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        bithdate: {
+        birthdate: {
             type: DataTypes.DATE
         },
         date_of_register: {
@@ -59,7 +59,8 @@ User.init(
         },
         img: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            defaultValue: null
         },
         state: {
             type: DataTypes.BOOLEAN,
