@@ -1,11 +1,12 @@
 const { Router } = require('express');
+const { getAssistances, getAssistance, createAssistance, updateAssistance, deleteAssistance } = require('../controllers/assistance');
 
 const router = Router();
 
-router.get('/assistances', getAssistances);
-router.get('/assistances/:id', getAssistance);
-router.post('/assistances', createAssistance);
-router.put('/assistances/:id', updateAssistance);
-router.delete('/assistances/:id', deleteAssistance);
+router.get('/', getAssistances);
+router.get('/:id', getAssistance);
+router.post('/', createAssistance);
+router.put('/:id', updateAssistance);
+router.delete('/:id', deleteAssistance);
 
 module.exports = router;

@@ -14,10 +14,10 @@ const config = {
     DB_DATABASE: process.env.DB_DATABASE || 'scoreboard-cds',
     DB_USERNAME: process.env.DB_USERNAME || 'postgres',
     
-    DB_PASSWORD: process.env.DB_PASSWORD || 'password',
+    //DB_PASSWORD: process.env.DB_PASSWORD || 'password',
 
     //mi password
-    //DB_PASSWORD: process.env.DB_PASSWORD || 'HolaMundo123',
+    DB_PASSWORD: process.env.DB_PASSWORD || 'HolaMundo123',
 
     API_KEY: process.env.API_KEY || '',
     JWT_AUTH: process.env.JWT_AUTH || '',

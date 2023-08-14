@@ -1,5 +1,6 @@
 const { DataTypes, Model } = require("sequelize");
 const db = require("../../../db/connection");
+const User = require("./user");
 
 class Event extends Model {
     
