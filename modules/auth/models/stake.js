@@ -1,7 +1,7 @@
 const { DataTypes, Model } = require("sequelize");
 const db = require("../../../db/connection");
-const Assistance = require("./assistance");
-const LevelDetail = require("./levelDetail");
+const Assistance = require("./assitance");
+const LevelDetail = require("./level_detail");
 
 class Stake extends Model {
     
@@ -28,7 +28,7 @@ Stake.init(
             type: DataTypes.BOOLEAN,
             defaultValue: true,
         },
-        assistances_id: {
+        assistences_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: Assistance,
