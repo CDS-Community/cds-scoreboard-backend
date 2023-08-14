@@ -22,7 +22,7 @@ router.get('/:id', get);
 router.post('/', post);
 
 // Modificar un dato
-router.put('/:id', put);
+router.put('/:id', put); 
 
 // Eliminar permanentemente un dato
 router.delete('/del/:id', delet);

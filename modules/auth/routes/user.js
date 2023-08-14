@@ -45,7 +45,7 @@ router.delete('/:id', deletState);
 router.get('/pre', getslimit);
 
 // Crear un dato PRE
-router.post('/pre', postpre);
+router.post('/pre', postpre); 
 
 // Modificar un dato PRE
 router.put('/pre/:id', putpre);

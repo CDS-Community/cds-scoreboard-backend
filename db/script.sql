@@ -47,7 +47,7 @@ ALTER TABLE IF EXISTS public.level OWNER to postgres;
 
 CREATE TABLE public.role (id serial NOT NULL,
                           name character varying(30) NOT NULL,
-                          description character varying(100),
+                          description character varying(100), 
                           state boolean DEFAULT true,
                           "createdAt" timestamp with time zone,
                           "updatedAt" timestamp with time zone,
