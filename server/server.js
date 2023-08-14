@@ -18,7 +18,9 @@ class Server {
             role: '/api/roles',
             position: '/api/position',
             event:'/api/events',
-            assitance:'/api/assistances'
+            assitance:'/api/assistances',
+            staff_event:'/api/staff-events',
+            commission:'/api/commissions'
             
         }
         // Conectar a la Base de Datos
@@ -68,6 +70,8 @@ class Server {
         this.app.use(this.paths.position, require('../modules/auth/routes/position'));
         this.app.use(this.paths.event, require('../modules/auth/routes/events.routes'));
         this.app.use(this.paths.assitance, require('../modules/auth/routes/assistance.routes'));
+        this.app.use(this.paths.staff_event, require('../modules/auth/routes/staff_events.routes'));
+        this.app.use(this.paths.commission, require('../modules/auth/routes/commissions.routes'));
     }
 
     listen() {

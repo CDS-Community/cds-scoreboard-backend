@@ -1,12 +1,13 @@
 const { Router } = require('express');
+const { getCommissions, getCommission, createCommission, updateCommission, deleteCommission, deleteCommissionByState } = require('../controllers/commission');
 
 const router = Router();
 
-router.get('/commissions', getCommissions);
-router.get('/commissions/:id', getCommission);
-router.post('/commissions', createCommission);
-router.put('/commissions/:id', updateCommission);
-router.delete('/commissions/del/:id', deleteCommission);
-router.delete('/commissions/:id', deleteCommissionByState);
+router.get('/', getCommissions);
+router.get('/:id', getCommission);
+router.post('/', createCommission);
+router.put('/:id', updateCommission);
+router.delete('/del/:id', deleteCommission);
+router.delete('/:id', deleteCommissionByState);
 
 module.exports = router;
