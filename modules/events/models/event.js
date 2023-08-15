@@ -1,19 +1,28 @@
 const { DataTypes, Model } = require("sequelize");
 const db = require("../../../db/connection");
-const User = require("./user");
-const Event = require("./event");
-const Commission = require("./commission");
+const User = require("../../auth/models/user");
 
-class StaffEvent extends Model {
-    
+class Event extends Model {
+
 }
 
-StaffEvent.init(
+Event.init(
     {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
+        },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        date: {
+            type: DataTypes.DATE,
         },
         start_time: {
             type: DataTypes.TIME,
@@ -21,43 +30,29 @@ StaffEvent.init(
         end_time: {
             type: DataTypes.TIME,
         },
-        description: {
+        location: {
             type: DataTypes.STRING,
         },
-        score: {
-            type: DataTypes.INTEGER,
+        coordinates: {
+            type: DataTypes.STRING,
         },
         state: {
             type: DataTypes.BOOLEAN,
             defaultValue: true,
         },
-        user_id: {
+        organizer_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: User,
                 key: "id",
             },
         },
-        event_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: Event,
-                key: "id",
-            },
-        },
-        commission_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: Commission,
-                key: "id",
-            },
-        },
     },
     {
         sequelize: db,
-        modelName: "StaffEvent",
-        tableName: "staff_event",
+        modelName: "Event",
+        tableName: "events",
     }
 );
 
-module.exports = StaffEvent;
+module.exports = Event;

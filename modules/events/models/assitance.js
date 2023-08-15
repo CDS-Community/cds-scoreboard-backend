@@ -1,58 +1,50 @@
 const { DataTypes, Model } = require("sequelize");
 const db = require("../../../db/connection");
-const User = require("./user");
+const User = require("../../auth/models/user");
+const Event = require("./event");
 
-class Event extends Model {
-    
+class Assistance extends Model {
+
 }
 
-Event.init(
+Assistance.init(
     {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
-        title: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         description: {
             type: DataTypes.STRING,
+        },
+        time: {
+            type: DataTypes.TIME,
             allowNull: false,
-        },
-        date: {
-            type: DataTypes.DATEONLY,
-        },
-        start_time: {
-            type: DataTypes.TIME,
-        },
-        end_time: {
-            type: DataTypes.TIME,
-        },
-        location: {
-            type: DataTypes.STRING,
-        },
-        coordinates: {
-            type: DataTypes.GEOMETRY("POINT"),
         },
         state: {
             type: DataTypes.BOOLEAN,
             defaultValue: true,
         },
-        organizer_id: {
+        user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: User,
                 key: "id",
             },
         },
+        event_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: Event,
+                key: "id",
+            },
+        },
     },
     {
         sequelize: db,
-        modelName: "Event",
-        tableName: "events",
+        modelName: "Assistance",
+        tableName: "assitances",
     }
 );
 
-module.exports = Event;
+module.exports = Assistance;

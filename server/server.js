@@ -17,13 +17,16 @@ class Server {
             user: '/api/user',
             role: '/api/roles',
             position: '/api/position',
-            event:'/api/events',
-            assitance:'/api/assistances',
-            staff_event:'/api/staff-events',
-            commission:'/api/commissions',
-            stake:'/api/stakes',
-            img_event:'/api/img-events'
-            
+            level: '/api/level',
+            level_detail: '/api/level_detail',
+
+            event: '/api/events',
+            assitance: '/api/assistances',
+            staff_event: '/api/staff-events',
+            commission: '/api/commissions',
+            stake: '/api/stakes',
+            img_event: '/api/img-events'
+
         }
         // Conectar a la Base de Datos
         this.dbConnection();
@@ -67,15 +70,19 @@ class Server {
     // Añadir las rutas que se encuentran en el path
     routes() {
         // this.app.use(this.paths.auth, require('../routes/auth'));
-        this.app.use(this.paths.user, require('../modules/auth/routes/user'));
-        this.app.use(this.paths.role, require('../modules/auth/routes/role'));
-        this.app.use(this.paths.position, require('../modules/auth/routes/position'));
-        this.app.use(this.paths.event, require('../modules/auth/routes/events.routes'));
-        this.app.use(this.paths.assitance, require('../modules/auth/routes/assistance.routes'));
-        this.app.use(this.paths.staff_event, require('../modules/auth/routes/staff_events.routes'));
-        this.app.use(this.paths.commission, require('../modules/auth/routes/commissions.routes'));
-        this.app.use(this.paths.stake, require('../modules/auth/routes/stake.routes'));
-        this.app.use(this.paths.img_event,require('../modules/auth/routes/img_event.routes'));
+        // AUTH MODULE
+        this.app.use(this.paths.user, require('../modules/auth/routes/user.routes'));
+        this.app.use(this.paths.role, require('../modules/auth/routes/role.routes'));
+        this.app.use(this.paths.position, require('../modules/auth/routes/position.routes'));
+        this.app.use(this.paths.level, require('../modules/auth/routes/levels.routes'));
+        this.app.use(this.paths.level_detail, require('../modules/auth/routes/level_detail.routes'));
+        // EVENTS MODULE
+        this.app.use(this.paths.event, require('../modules/events/routes/events.routes'));
+        this.app.use(this.paths.assitance, require('../modules/events/routes/assistance.routes'));
+        this.app.use(this.paths.staff_event, require('../modules/events/routes/staff_events.routes'));
+        this.app.use(this.paths.commission, require('../modules/events/routes/commissions.routes'));
+        this.app.use(this.paths.stake, require('../modules/events/routes/stake.routes'));
+        this.app.use(this.paths.img_event, require('../modules/events/routes/img_event.routes'));
     }
 
     listen() {

@@ -1,5 +1,12 @@
 const { Router } = require('express');
-const { getCommissions, getCommission, createCommission, updateCommission, deleteCommission, deleteCommissionByState } = require('../controllers/commission');
+const {
+    getCommissions,
+    getCommission,
+    createCommission,
+    updateCommission,
+    deleteCommission,
+    deleteCommissionByState
+} = require('../controllers/commission');
 
 const router = Router();
 

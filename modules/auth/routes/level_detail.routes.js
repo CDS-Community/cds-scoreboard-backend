@@ -8,7 +8,7 @@ const {
     put,
     delet,
     deletState
-} = require('../controllers/level');
+} = require('../controllers/level_detail');
 
 const router = Router();
 

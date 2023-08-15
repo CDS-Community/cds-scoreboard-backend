@@ -80,3 +80,5 @@ exports.deleteEvent = async (req, res) => {
         res.status(500).json({ msg: "Error al eliminar el evento" });
     }
 };
+
+/// SEGUIR EL FORMATO QUE SE TE ASIGNO : CREAR Y ENRUTAR EL DELETE_STATE

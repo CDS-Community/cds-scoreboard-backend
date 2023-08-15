@@ -1,36 +1,32 @@
 const { DataTypes, Model } = require("sequelize");
 const db = require("../../../db/connection");
-const User = require("./user");
 const Event = require("./event");
 
-class Assistance extends Model {
-    
+class ImgEvent extends Model {
+
 }
 
-Assistance.init(
+ImgEvent.init(
     {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         description: {
             type: DataTypes.STRING,
         },
-        time: {
-            type: DataTypes.TIME,
+        img: {
+            type: DataTypes.STRING,
             allowNull: false,
         },
         state: {
             type: DataTypes.BOOLEAN,
             defaultValue: true,
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: User,
-                key: "id",
-            },
         },
         event_id: {
             type: DataTypes.INTEGER,
@@ -42,9 +38,9 @@ Assistance.init(
     },
     {
         sequelize: db,
-        modelName: "Assistance",
-        tableName: "assitances", 
+        modelName: "ImgEvent",
+        tableName: "img_event",
     }
 );
 
-module.exports = Assistance;
+module.exports = ImgEvent;

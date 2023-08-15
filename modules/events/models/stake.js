@@ -1,10 +1,10 @@
 const { DataTypes, Model } = require("sequelize");
 const db = require("../../../db/connection");
 const Assistance = require("./assitance");
-const LevelDetail = require("./level_detail");
+const LevelDetail = require("../../auth/models/level_detail");
 
 class Stake extends Model {
-    
+
 }
 
 Stake.init(

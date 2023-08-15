@@ -1,5 +1,11 @@
-const {Router} = require('express');
-const { getStaffEvents, getStaffEvent, createStaffEvent, updateStaffEvent, deleteStaffEvent } = require('../controllers/staff_Event');
+const { Router } = require('express');
+const {
+    getStaffEvents,
+    getStaffEvent,
+    createStaffEvent,
+    updateStaffEvent,
+    deleteStaffEvent
+} = require('../controllers/staff_Event');
 
 const router = Router();
 

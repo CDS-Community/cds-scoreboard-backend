@@ -13,8 +13,8 @@ const config = {
     DB_PORT: process.env.DB_PORT || '5432',
     DB_DATABASE: process.env.DB_DATABASE || 'scoreboard-cds',
     DB_USERNAME: process.env.DB_USERNAME || 'postgres',
-    
-    //DB_PASSWORD: process.env.DB_PASSWORD || 'password',
+
+    // DB_PASSWORD: process.env.DB_PASSWORD || 'password',
 
     //mi password
     DB_PASSWORD: process.env.DB_PASSWORD || 'HolaMundo123',
