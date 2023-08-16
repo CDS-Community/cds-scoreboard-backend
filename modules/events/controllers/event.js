@@ -30,8 +30,7 @@ exports.createEvent = async (req, res) => {
     try {
         const event = await Event.create(body);
         res.json({
-            msg: "Evento creado correctamente",
-            event
+            msg: "Evento creado correctamente", event
         });
     } catch (error) {
         console.error(error);
@@ -52,8 +51,7 @@ exports.updateEvent = async (req, res) => {
         }
         await event.update(body);
         res.json({
-            msg: `Evento actualizado correctamente`,
-            event
+            msg: `Evento actualizado correctamente`, event
         });
     } catch (error) {
         console.error(error);
@@ -72,8 +70,7 @@ exports.deleteEvent = async (req, res) => {
         }
         await event.destroy();
         res.json({
-            msg: `Evento eliminado con éxito`,
-            event
+            msg: `Evento eliminado con éxito`, event
         });
     } catch (error) {
         console.error(error);
@@ -81,4 +78,24 @@ exports.deleteEvent = async (req, res) => {
     }
 };
 
-/// SEGUIR EL FORMATO QUE SE TE ASIGNO : CREAR Y ENRUTAR EL DELETE_STATE
+//eliminacion por estado
+
+exports.deleteEventByState = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const event = await Event.findByPk(id);
+        if (!event) {
+            return res.status(404).json({
+                msg: `No existe un evento con el id: ${id}`
+            });
+        }
+        await event.update({ state: false });
+        res.json({
+            msg: `Evento eliminado por estado con éxito`, event
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ msg: "Error al eliminar el evento por estado" });
+    }
+};
+

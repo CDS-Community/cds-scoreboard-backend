@@ -5,7 +5,8 @@ const {
     getStake,
     createStake,
     updateStake,
-    deleteStake
+    deleteStake,
+    deleteStakeByState
 } = require('../controllers/stake');
 
 const router = Router();
@@ -14,6 +15,7 @@ router.get('/', getStakes);
 router.get('/:id', getStake);
 router.post('/', createStake);
 router.put('/:id', updateStake);
-router.delete('/:id', deleteStake);
+router.delete('/del/:id', deleteStake);
+router.delete('/:id', deleteStakeByState);
 
 module.exports = router;

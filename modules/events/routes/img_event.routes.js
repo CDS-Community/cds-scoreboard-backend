@@ -4,7 +4,8 @@ const {
     getImgEvent,
     createImgEvent,
     updateImgEvent,
-    deleteImgEvent
+    deleteImgEvent,
+    deleteImgEventByState
 } = require('../controllers/img_event');
 
 const router = Router();
@@ -13,6 +14,7 @@ router.get('/', getImgEvents);
 router.get('/:id', getImgEvent);
 router.post('/', createImgEvent);
 router.put('/:id', updateImgEvent);
-router.delete('/:id', deleteImgEvent);
+router.delete('/del/:id', deleteImgEvent);
+router.delete('/:id', deleteImgEventByState);
 
 module.exports = router;

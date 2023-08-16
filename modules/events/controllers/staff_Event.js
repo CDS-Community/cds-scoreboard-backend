@@ -68,3 +68,23 @@ exports.deleteStaffEvent = async (req, res) => {
         res.status(500).json({ msg: "Error al eliminar el evento de personal" });
     }
 };
+
+//eliminacion por estado
+
+exports.deleteStaffEventByState = async(req, res) => {
+    const {id} = req.params;    
+    try{
+        const staffEvent = StaffEvent.findByPk({id});
+        if(staffEvent){
+            await staffEvent.update({state:false});
+            res.json({msg:`El staff del evento con ID ${id} fue descativada`});
+        }
+        else{
+            res.status(404).json({msg:`el staff del evento con ID ${id} no fue encontrado`});
+    }
+    }catch(error){
+        console.error(error);
+        res.status(500).json({msg:"Error al desactivar el staff del evento"});
+    }
+}
+

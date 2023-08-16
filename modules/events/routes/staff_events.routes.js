@@ -4,7 +4,8 @@ const {
     getStaffEvent,
     createStaffEvent,
     updateStaffEvent,
-    deleteStaffEvent
+    deleteStaffEvent,
+    deleteStaffEventByState
 } = require('../controllers/staff_Event');
 
 const router = Router();
@@ -13,6 +14,7 @@ router.get('/', getStaffEvents);
 router.get('/:id', getStaffEvent);
 router.post('/', createStaffEvent);
 router.put('/:id', updateStaffEvent);
-router.delete('/:id', deleteStaffEvent);
+router.delete('/del/:id', deleteStaffEvent);
+router.delete('/:id', deleteStaffEventByState);
 
 module.exports = router;

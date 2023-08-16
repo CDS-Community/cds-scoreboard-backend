@@ -68,3 +68,24 @@ exports.deleteStake = async (req, res) => {
         res.status(500).json({ msg: "Error al eliminar la apuesta" });
     }
 };
+
+
+//eliminacion por estado
+
+exports.deleteStakeByState = async(req, res) => {
+    const {id} = req.params;
+    try{
+        const stake = await Stake.findByPk(id);
+        if(stake){
+            await stake.update({state:false});
+            res.json({msg:`el stake con ID ${id} fue desactivado `});
+        }else{
+            res.status(404).json({msg:`el stake con ID ${id} no fue encontrada`});
+        }
+
+    }catch(error){
+        console.error(error);
+        res.status(500).json({msg:"error al desactivar el stake"});
+    }
+}
+

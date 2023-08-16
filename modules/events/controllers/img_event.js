@@ -69,3 +69,27 @@ exports.deleteImgEvent = async (req, res) => {
     }
 };
 
+//eliminacion por estado
+
+exports.deleteImgEventByState = async (req, res) => {
+   const { id } = req.params;
+   try{
+    const imgEvent = await ImgEvent.findByPk(id);
+    if(imgEvent){
+        await imgEvent.update({state:false});
+        res.json({msg:`La imagen del evento con ID ${id} desactivada`});
+    }else{
+        res.status(404).json({msg:`La imagen del evento con ID ${id} no fue encontrada`});
+    }
+
+    }catch(error){
+        console.error(error);
+        res.status(500).json({ msg:"Error al desactivar la imagen del evento"});
+    }
+   
+   
+}
+
+
+
+

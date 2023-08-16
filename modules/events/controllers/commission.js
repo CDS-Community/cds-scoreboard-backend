@@ -69,6 +69,8 @@ exports.deleteCommission = async (req, res) => {
     }
 };
 
+//eliminacion por estado
+
 exports.deleteCommissionByState = async (req, res) => {
     const { id } = req.params;
     try {

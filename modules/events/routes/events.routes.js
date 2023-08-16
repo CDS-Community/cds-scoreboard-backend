@@ -13,6 +13,7 @@ router.get('/', getEvents);
 router.get('/:id', getEvent);
 router.post('/', createEvent);
 router.put('/:id', updateEvent);
-router.delete('/:id', deleteEvent);
+router.delete('/del/:id', deleteEvent);
+router.delete('/:id', deleteEventByState);
 
 module.exports = router;

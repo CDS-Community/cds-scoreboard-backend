@@ -30,8 +30,7 @@ exports.createAssistance = async (req, res) => {
     try {
         const assistance = await Assistance.create(body);
         res.json({
-            msg: "Asistencia creada correctamente",
-            assistance
+            msg: "Asistencia creada correctamente", assistance
         });
     } catch (error) {
         console.error(error);
@@ -52,8 +51,7 @@ exports.updateAssistance = async (req, res) => {
         }
         await assistance.update(body);
         res.json({
-            msg: `Asistencia actualizada correctamente`,
-            assistance
+            msg: `Asistencia actualizada correctamente`, assistance
         });
     } catch (error) {
         console.error(error);
@@ -72,11 +70,32 @@ exports.deleteAssistance = async (req, res) => {
         }
         await assistance.destroy();
         res.json({
-            msg: `Asistencia eliminada con éxito`,
-            assistance
+            msg: `Asistencia eliminada con éxito`, assistance
         });
     } catch (error) {
         console.error(error);
         res.status(500).json({ msg: "Error al eliminar la asistencia" });
     }
 };
+
+//eliminacion por estado 
+
+exports.deleteAssistanceByState = async (req ,res ) =>{
+    const {id} = req.params;
+    try{
+      const assitance = await Assistance.findByPk(id);
+        if(assitance){
+            await assitance.update({state:false});
+            res.json({msg:`Asistencia con ID ${id} desactivada`});
+        }
+        else{
+            res.status(404).json({msg:`Asistencia con ID ${id} no encontrada `});
+
+        }
+      
+    }catch(error){
+        console.error(error);
+        res.status(500).json({ msg:"Error al desactivar la comissión" });
+    }
+};
+
