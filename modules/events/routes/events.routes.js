@@ -4,7 +4,8 @@ const {
     getEvent,
     createEvent,
     updateEvent,
-    deleteEvent
+    deleteEvent,
+    deleteEventByState
 } = require('../controllers/event');
 
 const router = Router();
