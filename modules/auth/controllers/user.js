@@ -2,6 +2,7 @@
 const bcryptjs = require('bcryptjs');
 
 const User = require('../models/user');
+const { tokenSign } = require('../../helpers/generateToken');
 
 // Gets Limit : Obtener varios usuarios - en este caso por defecto se optiene de a 5 usuarios y desde la posicion 0 en la bd
 exports.getslimit = async (req, res) => {
@@ -108,9 +109,11 @@ exports.post = async (req, res) => {
         }
         const obj = new User(resto);
         await obj.save();
+        const singToken = await tokenSign(obj);
         res.json({
             msg: 'El User se creo correctamente',
-            obj
+            obj,
+            singToken,
         });
     } catch (error) {
         console.log(error);

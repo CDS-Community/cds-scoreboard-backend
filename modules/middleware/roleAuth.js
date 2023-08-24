@@ -4,9 +4,9 @@ const { verifyToken } = require("../helpers/generateToken");
 
 const checkRoleAuth = (roles) => async (req, res, next) => {
    try{
-        const token = req.headers.authotization.split(' ').pop();
+        const token = req.headers.authorization.split(' ').pop();
         const tokenData = await verifyToken(token);
-        const userData = await User.findByPk(tokenData.id)
+        const userData = await User.findByPk(tokenData.id);
         
         if([].concat(roles).includes(userData.role_id)){
             next()
