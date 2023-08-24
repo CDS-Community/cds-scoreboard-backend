@@ -9,11 +9,13 @@ const {
     delet,
     deletState
 } = require('../controllers/role');
+const checkAuth = require('../../middleware/auth');
+const checkRoleAuth = require('../../middleware/roleAuth');
 
 const router = Router();
 
 // Llamar todos los datos
-router.get('/', gets);
+router.get('/', checkAuth,checkRoleAuth([1]), gets);
 
 // Llamar un datos en especifico
 router.get('/:id', get);

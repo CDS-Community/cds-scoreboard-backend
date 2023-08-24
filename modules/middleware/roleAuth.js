@@ -21,4 +21,4 @@ const checkRoleAuth = (roles) => async (req, res, next) => {
 
 }
 
-module.exports = checkRoleAuth();
+module.exports = checkRoleAuth;
