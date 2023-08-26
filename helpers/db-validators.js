@@ -1,4 +1,5 @@
-const { Categoria, Role, User, Producto } = require('../models');
+// const { Categoria, Role, User, Producto } = require('../modules/auth/models');
+const { User, Role } = require('../modules/auth/models');
 
 const isRoleValue = async (role = "") => {
     const existRole = await Role.findOne({ role });
@@ -21,42 +22,42 @@ const isUserForID = async (id) => {
     }
 };
 
-/**
- * Categorias
- */
-const isCategoryForID = async (id) => {
-    const existCategoryID = await Categoria.findById(id);
-    if (!existCategoryID) {
-        throw new Error(`El ID : ${id} no existe`)
-    }
-};
+// /**
+//  * Categorias
+//  */
+// const isCategoryForID = async (id) => {
+//     const existCategoryID = await Categoria.findById(id);
+//     if (!existCategoryID) {
+//         throw new Error(`El ID : ${id} no existe`)
+//     }
+// };
 
-/**
- * Productos
- */
-const isProductForID = async (id) => {
-    const existProductID = await Producto.findById(id);
-    if (!existProductID) {
-        throw new Error(`El ID : ${id} no existe`)
-    }
-};
+// /**
+//  * Productos
+//  */
+// const isProductForID = async (id) => {
+//     const existProductID = await Producto.findById(id);
+//     if (!existProductID) {
+//         throw new Error(`El ID : ${id} no existe`)
+//     }
+// };
 
-/**
- * Validar colecciones permitidas
- */
-const coleccionesPermitidas = (coleccion = '', colecciones = []) => {
-    const incluida = colecciones.includes(coleccion);
-    if (!incluida) {
-        throw new Error(`La coleccion ${coleccion} no esta permitida`);
-    }
-    return true;
-}
+// /**
+//  * Validar colecciones permitidas
+//  */
+// const coleccionesPermitidas = (coleccion = '', colecciones = []) => {
+//     const incluida = colecciones.includes(coleccion);
+//     if (!incluida) {
+//         throw new Error(`La coleccion ${coleccion} no esta permitida`);
+//     }
+//     return true;
+// }
 
 module.exports = {
     isRoleValue,
-    isCategoryForID,
-    isEmailExist,
-    isProductForID,
     isUserForID,
-    coleccionesPermitidas
+    isEmailExist,
+    // isProductForID,
+    // isCategoryForID,
+    // coleccionesPermitidas
 };

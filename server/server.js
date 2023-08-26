@@ -13,7 +13,7 @@ class Server {
 
         // Añadir los path { url } de cada elemento
         this.paths = {
-            // auth: '/api/auth',
+            auth: '/api/auth',
             user: '/api/user',
             role: '/api/roles',
             position: '/api/position',
@@ -71,6 +71,7 @@ class Server {
     routes() {
         // this.app.use(this.paths.auth, require('../routes/auth'));
         // AUTH MODULE
+        this.app.use(this.paths.auth, require('../modules/auth/routes/auth.routes'));
         this.app.use(this.paths.user, require('../modules/auth/routes/user.routes'));
         this.app.use(this.paths.role, require('../modules/auth/routes/role.routes'));
         this.app.use(this.paths.position, require('../modules/auth/routes/position.routes'));

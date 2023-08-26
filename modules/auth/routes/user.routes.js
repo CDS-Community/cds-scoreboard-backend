@@ -1,5 +1,7 @@
 const { Router } = require('express');
-// const { check } = require('express-validator');
+const { check } = require('express-validator');
+
+const { validarJWT, validarCampos } = require('../../../middlewares')
 
 const {
     gets,
@@ -20,16 +22,26 @@ const {
 const router = Router();
 
 // Llamar todos los datos
-router.get('/', gets);
+router.get('/', [
+    validarJWT,
+    validarCampos
+], gets);
 
 // Llamar un datos en especifico
 router.get('/:id', get);
 
 // Crear un dato
-router.post('/', post);
+router.post('/', [
+    validarJWT,
+    check('email', 'El correo es obligatorio - router erros').isEmail(),
+    check('password', 'La contraseña es obligatoria').not().isEmpty(),
+    validarCampos
+], post);
 
 // Modificar un dato
-router.put('/:id', put);
+router.put('/:id', [
+
+], put);
 
 // Eliminar permanentemente un dato
 router.delete('/del/:id', delet);
