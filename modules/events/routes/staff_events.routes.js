@@ -7,14 +7,16 @@ const {
     deleteStaffEvent,
     deleteStaffEventByState
 } = require('../controllers/staff_Event');
+const { validarJWT } = require('../../../middlewares');
+const checkRoleAuth = require('../../../middlewares/roleAuth');
 
 const router = Router();
 
-router.get('/', getStaffEvents);
-router.get('/:id', getStaffEvent);
-router.post('/', createStaffEvent);
-router.put('/:id', updateStaffEvent);
-router.delete('/del/:id', deleteStaffEvent);
-router.delete('/:id', deleteStaffEventByState);
+router.get('/',[validarJWT], getStaffEvents);
+router.get('/:id',[validarJWT], getStaffEvent);
+router.post('/',[validarJWT],checkRoleAuth([1]), createStaffEvent);
+router.put('/:id',[validarJWT],checkRoleAuth([1]), updateStaffEvent);
+router.delete('/del/:id',[validarJWT],checkRoleAuth([1]), deleteStaffEvent);
+router.delete('/:id',[validarJWT],checkRoleAuth([1]), deleteStaffEventByState);
 
 module.exports = router;
