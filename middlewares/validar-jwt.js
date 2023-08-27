@@ -17,7 +17,7 @@ const validarJWT = async (req, res, next) => {
         // decodificar token para obtener el id == uid
         const { uid } = decodedToken;
         // Leer el usuario que corresponde al uid
-        const user = await User.findByPk(uid);
+        const user = await User.findByPk(uid); 
 
         if (!user) {
             return res.status(401).json({

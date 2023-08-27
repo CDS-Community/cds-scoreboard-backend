@@ -21,6 +21,8 @@ const {
 
 const router = Router();
 
+
+
 // Llamar todos los datos
 router.get('/', [
     validarJWT,
