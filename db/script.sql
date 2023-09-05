@@ -115,7 +115,8 @@ CREATE TABLE public.staff_event
     (id serial NOT NULL,
     start_time time without time zone,
     end_time time without time zone,
-    description character varying, score integer, 
+    description character varying, 
+    score integer, 
     state boolean DEFAULT true,
     user_id serial NOT NULL,
     event_id serial NOT NULL,
@@ -170,8 +171,10 @@ ALTER TABLE IF EXISTS public.img_event OWNER to postgres;
 -- TABLE : STAKE
 
 CREATE TABLE public.stake
-    (id serial NOT NULL, date time without time zone NOT NULL,
-    score integer, description character varying(100),
+    (id serial NOT NULL, 
+    date time without time zone NOT NULL,
+    score integer, 
+    description character varying(100),
     state boolean DEFAULT true,
     assistences_id serial NOT NULL,
     level_detail_id serial NOT NULL,

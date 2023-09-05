@@ -7,14 +7,18 @@ const {
     deleteCommission,
     deleteCommissionByState
 } = require('../controllers/commission');
+const { validarJWT } = require('../../../middlewares');
+const checkRoleAuth = require('../../../middlewares/roleAuth');
 
 const router = Router();
 
-router.get('/', getCommissions);
-router.get('/:id', getCommission);
-router.post('/', createCommission);
-router.put('/:id', updateCommission);
-router.delete('/del/:id', deleteCommission);
-router.delete('/:id', deleteCommissionByState);
+//[1] es el id del rol administrador
+
+router.get('/',[validarJWT], getCommissions);
+router.get('/:id',[validarJWT], getCommission);
+router.post('/',[validarJWT],checkRoleAuth([1]),createCommission);
+router.put('/:id',[validarJWT],checkRoleAuth([1]), updateCommission);
+router.delete('/del/:id',[validarJWT],checkRoleAuth([1]), deleteCommission);
+router.delete('/:id',[validarJWT],checkRoleAuth([1]), deleteCommissionByState);
 
 module.exports = router;

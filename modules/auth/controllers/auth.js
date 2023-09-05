@@ -1,8 +1,11 @@
 const bcryptjs = require('bcryptjs');
 
+
+
 const { User } = require('../models');
 // const { JWTgenerate, googleVerify } = require('../helpers');
 const { JWTgenerate, googleVerify } = require('../../../helpers');
+const { checkout } = require('../../events/routes/assistance.routes');
 
 const login = async (req, res = response) => {
 
